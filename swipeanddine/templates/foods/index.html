@@ -1,0 +1,12 @@
+{% if foods %}
+<div>
+  {% for food in foods %}
+  <h3>
+    {{ food.name }}
+  </h3>
+  <div>
+    {{ food.description }}
+  </div>
+  {% endfor %}
+</div>
+{% else %} We have no foods :( {% endif %}

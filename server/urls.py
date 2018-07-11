@@ -14,8 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, re_path
+
+from rest_framework import routers
+from rest_framework.authtoken import views
+
+from swipeanddine.api import CategoryViewset, FoodViewset
+
+router = routers.DefaultRouter()
+router.register(r'categories', CategoryViewset)
+router.register(r'Foods', FoodViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path('categories/', include('swipeanddine.urls')),
+    path('foods/', include('swipeanddine.urls')),
+    re_path(r'^api-token-auth/', views.obtain_auth_token),
 ]

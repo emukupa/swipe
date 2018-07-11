@@ -1,1 +1,1 @@
-web: gunicorn swipeanddine.wsgi
+web: gunicorn swipe.wsgi

@@ -23,7 +23,7 @@ from swipeanddine.api import CategoryViewset, FoodViewset
 
 router = routers.DefaultRouter()
 router.register(r'categories', CategoryViewset)
-router.register(r'Foods', FoodViewset)
+router.register(r'foods', FoodViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

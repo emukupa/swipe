@@ -15,6 +15,7 @@ markdown = "*"
 pytz = "*"
 whitenoise = "*"
 dj-static = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

@@ -11,7 +11,7 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
 class FoodSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Food
-        fields = ['name', 'description', 'url_pic']
+        fields = ['id', 'name', 'description', 'url_pic']
 
 
 class CategoryViewset(viewsets.ModelViewSet):
@@ -21,4 +21,4 @@ class CategoryViewset(viewsets.ModelViewSet):
 
 class FoodViewset(viewsets.ModelViewSet):
     serializer_class = FoodSerializer
-    queryset = Food.objects.none()
+    queryset = Food.objects.all()

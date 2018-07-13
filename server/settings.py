@@ -36,6 +36,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [
 
 INSTALLED_APPS = [
     'swipeanddine',
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'django.contrib.admin',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -56,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'server.urls'
 
@@ -141,3 +145,8 @@ REST_FRAMEWORK = {
     ),
 
 }
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000',
+    '127.0.0.1:3000'
+)
